@@ -4,9 +4,9 @@ const express = require('express');
 const app = express();
 
 // routes
-app.use('/itunes', (req, res, next) => {
-    console.log('This is where we will make an API call to the iTunes API');
-})
+const itunesData = require('./routes/itunes.js');
+
+app.use(itunesData.routes);
 
 app.use('/google', (req, res, next) => {
     console.log('This is where we will make an API call to the Google Places API');
