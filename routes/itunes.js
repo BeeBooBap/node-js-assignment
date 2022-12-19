@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // storing results of API call
-const searchResults = [];
+const itunesSearchResults = [];
 
 // get request
 router.get('/itunes', (req, res, next) => {
@@ -13,11 +13,11 @@ router.get('/itunes', (req, res, next) => {
 // post request
 router.post('/itunes', (req, res, next) => {
     console.log('This is the post request to itunes');
-    searchResults.push({
+    itunesSearchResults.push({
         title: req.body.title
     });
 });
 
 // exporting routes
 exports.routes = router;
-exports.searchResults = searchResults;
+exports.itunesSearchResults = itunesSearchResults;
