@@ -4,8 +4,8 @@ const router = express.Router();
 
 const musicController = require('../controllers/music');
 
-// GET /music/info
-router.get('/info', musicController.getMusic);
+// GET /music/artist
+router.get('/artist', musicController.getMusic);
 
 // exporting routes
 exports.routes = router;

@@ -6,10 +6,10 @@ const app = express();
 
 // routes
 const musicData = require('./routes/music');
-const googleData = require('./routes/google');
+const spaceData = require('./routes/space');
 
 app.use('/music', musicData.routes);
-app.use(googleData.routes);
+app.use('/space', spaceData.routes);
 
 // catch all middleware
 app.use((req, res, next) => {
