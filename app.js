@@ -26,9 +26,9 @@ app.use('/spotify-api/v1', musicData.routes);
 app.use('/space', spaceData.routes);
 
 // catch all middleware
-// app.use((req, res, next) => {
-//     res.send('This is the home page!');
-// });
+app.use((req, res, next) => {
+    res.status(404).send('Page Not Found');
+});
 
 // start server
 app.listen(process.env.PORT, () => {
