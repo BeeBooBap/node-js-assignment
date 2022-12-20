@@ -8,7 +8,7 @@ const app = express();
 const musicData = require('./routes/music');
 const googleData = require('./routes/google');
 
-app.use(musicData.routes);
+app.use('/music', musicData.routes);
 app.use(googleData.routes);
 
 // catch all middleware
