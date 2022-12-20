@@ -10,6 +10,16 @@ const app = express();
 const musicData = require('./routes/music');
 const spaceData = require('./routes/space');
 
+// middleware to parse incoming json data
+app.use(bodyParser.json()); // application/json
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
+
 app.use('/music', musicData.routes);
 app.use('/space', spaceData.routes);
 
