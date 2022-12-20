@@ -1,6 +1,8 @@
 // imports
 const express = require('express');
 
+const PORT = 8080;
+
 // create express app
 const app = express();
 
@@ -17,6 +19,6 @@ app.use((req, res, next) => {
 });
 
 // start server
-app.listen(3000, () => {
-    console.log(`Listening on port ${3000}`);
+app.listen(PORT, () => {
+    console.log(`Listening on port ${PORT}`);
 });
