@@ -5,10 +5,10 @@ const express = require('express');
 const app = express();
 
 // routes
-const itunesData = require('./routes/itunes.js');
+const musicData = require('./routes/music');
 const googleData = require('./routes/google');
 
-app.use(itunesData.routes);
+app.use(musicData.routes);
 app.use(googleData.routes);
 
 // catch all middleware
