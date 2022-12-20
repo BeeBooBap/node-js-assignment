@@ -61,7 +61,7 @@ app.get('/spotify-login', (req, res, next) => {
     res.redirect(spotifyApi.createAuthorizeURL(scopes));
 });
 
-// user redirected upon good auth to /music/artist
+// user redirected upon good auth to /music/user-info
 app.get('/callback', (req, res, next) => {
     const error = req.query.error;
     const code = req.query.code;
@@ -91,7 +91,7 @@ app.get('/callback', (req, res, next) => {
         );
 
         process.env.SPOTIFY_ACCESS_TOKEN = access_token;
-        res.redirect('/music/artist');
+        res.redirect('/music/user-info');
   
         setInterval(async () => {
           const data = await spotifyApi.refreshAccessToken();
@@ -107,6 +107,18 @@ app.get('/callback', (req, res, next) => {
         res.send(`Error getting Tokens: ${error}`);
       });
     });
+
+// get user info
+app.get('/music/user-info', async (res, req, next) => {
+    await spotifyApi
+    .getMe()
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.log(error);
+    })
+});
 
 // catch all middleware
 app.use((req, res, next) => {
