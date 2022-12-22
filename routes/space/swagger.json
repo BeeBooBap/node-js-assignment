@@ -1,8 +1,8 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "Spotify",
-        "description": "Calling the Spotify API",
+        "title": "Nasa API Calls",
+        "description": "Calling the NASA Open APIs",
         "version": "0.0.1"
     },
     "paths": {
