@@ -25,6 +25,7 @@ exports.getApod = (req, res, next) => {
     })
     .catch(error => {
         console.log(error);
+        res.status(400);
     });
 };
 
@@ -37,6 +38,7 @@ exports.getMarsRover = (req, res, next) => {
     })
     .catch(error => {
         console.log(error);
+        res.status(400);
     });
 };
 
@@ -49,6 +51,7 @@ exports.getCMEAnalysis = (req, res, next) => {
     })
     .catch(error => {
         console.log(error);
+        res.status(400);
     });
 };
 

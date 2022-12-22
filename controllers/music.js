@@ -31,7 +31,9 @@ const spotifyApi = new SpotifyWebApi({
 
 // authenticate users
 exports.getAuth = (req, res, next) => {
-    res.redirect(spotifyApi.createAuthorizeURL(scopes));
+    res.redirect(spotifyApi.createAuthorizeURL(scopes))
+    .then(res.status(200))
+    .catch(res.status(401));
 };
 
 // generate access token for authenticated users
@@ -64,7 +66,8 @@ exports.getCallback = (req, res, next) => {
         );
 
         process.env.SPOTIFY_ACCESS_TOKEN = access_token;
-        res.redirect('/spotify-api/v1/user-info');
+        res.status(200)
+        .redirect('/spotify-api/v1/user-info');
   
         setInterval(async () => {
           const data = await spotifyApi.refreshAccessToken();
@@ -77,7 +80,8 @@ exports.getCallback = (req, res, next) => {
       })
       .catch(error => {
         console.error('Error getting Tokens:', error);
-        res.send(`Error getting Tokens: ${error}`);
+        res.status(400)
+        .send(`Error getting Tokens: ${error}`);
       });
     };
 
@@ -87,9 +91,12 @@ exports.getUserInfo = async (res, req, next) => {
     .getMe()
     .then(data => {
         console.log(data);
+        res.status(200)
+        .send(data);
     })
     .catch(error => {
         console.log(error);
+        res.status(400);
     })
 };
 
@@ -101,9 +108,12 @@ exports.getRelatedArtists = async (req, res, next) => {
     .getArtistRelatedArtists(artistId)
     .then(data => {
         console.log(data.body);
+        res.status(200)
+        .send(data);
     })
     .catch(error => {
         console.log(error);
+        res.status(400);
     });
 };
 
