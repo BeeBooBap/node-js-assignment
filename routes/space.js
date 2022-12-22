@@ -2,14 +2,7 @@ const express = require('express');
 
 const router = express.Router();
 
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger.json');
-
-const spaceController = require('../../controllers/space');
-
-// Swagger spec /nasa-api/v1/api-docs
-router.use('/api-docs', swaggerUi.serve);
-router.get('/api-docs', swaggerUi.setup(swaggerDocument));
+const spaceController = require('../controllers/space');
 
 // GET /nasa-api/v1/dummy-img
 router.get('/dummy-img', spaceController.getImage);

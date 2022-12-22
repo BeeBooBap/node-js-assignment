@@ -1,11 +1,50 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "Spotify",
-        "description": "Calling the Spotify API",
+        "title": "Testing Spotify and Nasa API Endpoints",
+        "description": "Calling the Spotify and Nasa APIs",
         "version": "0.0.1"
     },
     "paths": {
+        "/nasa-api/v1/apod": {
+            "get": {
+                "description": "Fetches the NASA image of the day",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved the image of the day"
+                    },
+                    "400": {
+                        "description": "Unable to fetch"
+                    }
+                }
+            }
+        },
+        "/nasa-api/v1/mars-rover": {
+            "get": {
+                "description": "Fetches the NASA top image from the Mars Rover",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved the top image"
+                    },
+                    "400": {
+                        "description": "Unable to fetch"
+                    }
+                }
+            }
+        },
+        "/nasa-api/v1/cme-analysis": {
+            "get": {
+                "description": "Fetches the NASA CME Analysis",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved the CME Analysis"
+                    },
+                    "400": {
+                        "description": "Unable to fetch"
+                    }
+                }
+            }
+        },
         "/spotify-api/v1/login": {
             "get": {
                 "parameters": [
@@ -126,16 +165,6 @@
                             }
                         }
                     }
-                }
-            }
-        }
-    },
-    "models": {
-        "Order": {
-            "id": "Auth",
-            "properties": {
-                "clientID": {
-                    "type": "string"
                 }
             }
         }
