@@ -49,11 +49,39 @@
             "get": {
                 "parameters": [
                     {
-                        "in": "body",
-                        "name": "authenticate",
-                        "description": "Takes in a list of parameters and authenticates user",
-                        "required": true,
-                        "type": "Auth",
+                        "name": "clientID",
+                        "schema": {
+                            "type": "string"
+                            },
+                        "description": "The client ID needed for authentication",
+                        "required": false,
+                        "paramType": "body"
+                    },
+                    {
+                        "name": "clientSecret",
+                        "schema": {
+                            "type": "string"
+                            },
+                        "description": "The client secret needed for authentication",
+                        "required": false,
+                        "paramType": "body"
+                    },
+                    {
+                        "name": "redirectUri",
+                        "schema": {
+                            "type": "string"
+                            },
+                        "description": "The redirect uri once authentication is done",
+                        "required": false,
+                        "paramType": "body"
+                    },
+                    {
+                        "name": "scopes",
+                        "schema": {
+                            "type": "string"
+                            },
+                        "description": "The scope of authentication",
+                        "required": false,
                         "paramType": "body"
                     }
                 ],
@@ -167,6 +195,11 @@
                     }
                 }
             }
+        }
+    },
+    "models": {
+        "Astor": {
+
         }
     }
 }
