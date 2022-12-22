@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 
 // routes
 const musicData = require('./routes/music');
-const spaceData = require('./routes/space');
+const spaceData = require('./routes/space/space');
 
 app.use('/spotify-api/v1', musicData.routes);
 app.use('/nasa-api/v1', spaceData.routes);
