@@ -8,10 +8,23 @@
     "paths": {
         "/spotify-api/v1/login": {
             "get": {
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "authenticate",
+                        "description": "Takes in a list of parameters and authenticates user",
+                        "required": true,
+                        "type": "Auth",
+                        "paramType": "body"
+                    }
+                ],
                 "description": "Authenticates users",
                 "responses": {
                     "200": {
                         "description": "Successfully authenticated user"
+                    },
+                    "401": {
+                        "description": "Unable to authenticate user"
                     }
                 }
             }
@@ -113,6 +126,16 @@
                             }
                         }
                     }
+                }
+            }
+        }
+    },
+    "models": {
+        "Order": {
+            "id": "Auth",
+            "properties": {
+                "clientID": {
+                    "type": "string"
                 }
             }
         }
