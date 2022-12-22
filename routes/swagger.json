@@ -1,0 +1,120 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Spotify",
+        "description": "Calling the Spotify API",
+        "version": "0.0.1"
+    },
+    "paths": {
+        "/spotify-api/v1/login": {
+            "get": {
+                "description": "Authenticates users",
+                "responses": {
+                    "200": {
+                        "description": "Successfully authenticated user"
+                    }
+                }
+            }
+        },
+        "/spotify-api/v1/callback": {
+            "get": {
+                "description": "Callback page once user is authenticated",
+                "responses": {
+                    "200": {
+                        "description": "Successfully generated access token and redirect to user-info page"
+                    }
+                }
+            }
+        },
+        "/spotify-api/v1/user-info": {
+            "get": {
+                "description": "Returns user info",
+                "responses": {
+                    "200": {
+                        "description": "Successfully fetched user info"
+                    }
+                }
+            }
+        },
+        "/spotify-api/v1/artist": {
+            "get": {
+                "description": "Returns information about music post",
+                "responses": {
+                    "200": {
+                        "description": "Successfully fetched posts",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "title": {
+                                                "type": "string"
+                                            },
+                                            "content": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/spotify-api/v1/related-artists" : {
+            "get": {
+                "description": "Returns information about related artists",
+                "responses": {
+                    "200": {
+                        "description": "Successfully fetched related artists",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "external_urls": {
+                                                "type": "object"
+                                            },
+                                            "followers": {
+                                                "type": "object"
+                                            },
+                                            "genres": {
+                                                "type": "array"
+                                            },
+                                            "href": {
+                                                "type": "string"
+                                            },
+                                            "id": {
+                                                "type": "string"
+                                            },
+                                            "images": {
+                                                "type": "array"
+                                            },
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "popularity": {
+                                                "type": "number"
+                                            },
+                                            "type": {
+                                                "type": "string"
+                                            },
+                                            "uri": {
+                                                "type": "string"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

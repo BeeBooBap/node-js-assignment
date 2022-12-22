@@ -100,7 +100,7 @@ exports.getRelatedArtists = async (req, res, next) => {
     await spotifyApi
     .getArtistRelatedArtists(artistId)
     .then(data => {
-        console.log(data);
+        console.log(data.body);
     })
     .catch(error => {
         console.log(error);
