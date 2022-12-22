@@ -23,7 +23,7 @@ const musicData = require('./routes/music');
 const spaceData = require('./routes/space');
 
 app.use('/spotify-api/v1', musicData.routes);
-app.use('/space', spaceData.routes);
+app.use('/nasa-api/v1', spaceData.routes);
 
 // catch all middleware
 app.use((req, res, next) => {
