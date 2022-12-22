@@ -1,11 +1,24 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "Testing Spotify and Nasa API Endpoints",
-        "description": "Calling the Spotify and Nasa APIs",
+        "title": "Testing Spotify, Nasa and Yahoo Finance API Endpoints",
+        "description": "Calling the Spotify, Nasa and Yahoo Finance APIs",
         "version": "0.0.1"
     },
     "paths": {
+        "/stocks-api/v1/time-series": {
+            "get": {
+                "description": "Fetches financial data from the US Yahoo Finance API",
+                "responses": {
+                    "200": {
+                        "description": "Successfully retrieved financial data"
+                    },
+                    "400": {
+                        "description": "Unable to fetch"
+                    }
+                }
+            }
+        },
         "/nasa-api/v1/apod": {
             "get": {
                 "description": "Fetches the NASA image of the day",
