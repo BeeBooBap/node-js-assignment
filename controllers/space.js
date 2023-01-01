@@ -19,7 +19,6 @@ const getCMEAnalysisData = async () => {
 exports.getApod = (req, res, next) => {
     getApodData()
     .then(data => {
-        console.log(data);
         res.status(200)
         .send(data);
     })
@@ -32,7 +31,6 @@ exports.getApod = (req, res, next) => {
 exports.getMarsRover = (req, res, next) => {
     getMarsRoverData()
     .then(data => {
-        console.log(data.photos[0]);
         res.status(200)
         .send(data.photos[0]);
     })
@@ -45,7 +43,6 @@ exports.getMarsRover = (req, res, next) => {
 exports.getCMEAnalysis = (req, res, next) => {
     getCMEAnalysisData()
     .then(data => {
-        console.log(data);
         res.status(200)
         .send(data);
     })

@@ -17,7 +17,7 @@ describe("GET /nasa-api/v1/mars-rover", () => {
         const response = await request(baseURL).get("/nasa-api/v1/mars-rover");
         expect(response.statusCode).toBe(200);
     });
-    it("should return the id of the mars rover data", async () => {
+    it("should return the mars rover data", async () => {
         const response = await request(baseURL).get("/nasa-api/v1/mars-rover");
         expect(response.body.length >= 1).toBe(true);
     });
