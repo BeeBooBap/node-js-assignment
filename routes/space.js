@@ -7,13 +7,13 @@ const spaceController = require('../controllers/space');
 // GET /nasa-api/v1/dummy-img
 router.get('/dummy-img', spaceController.getImage);
 
-// GET /nasa-api-v1/apod
+// GET /nasa-api/v1/apod
 router.get('/apod', spaceController.getApod);
 
-// GET /nasa-api-v1/mars-rover
+// GET /nasa-api/v1/mars-rover
 router.get('/mars-rover', spaceController.getMarsRover);
 
-// GET /nasa-api-v1/cme-analysis
+// GET /nasa-api/v1/cme-analysis
 router.get('/cme-analysis', spaceController.getCMEAnalysis);
 
 // exporting routes
