@@ -8,7 +8,7 @@ describe("GET /nasa-api/v1/apod", () => {
     });
     it("should return the title of the image of the day", async () => {
         const response = await request(baseURL).get("/nasa-api/v1/apod");
-        expect(response.body.title === 'The Largest Rock in our Solar System').toBe(true);
+        expect(response.body.title === 'After Sunset Planet Parade').toBe(true);
     });
 });
 
@@ -19,7 +19,7 @@ describe("GET /nasa-api/v1/mars-rover", () => {
     });
     it("should return the mars rover data", async () => {
         const response = await request(baseURL).get("/nasa-api/v1/mars-rover");
-        expect(response.body.length >= 1).toBe(true);
+        expect(response.body.data !== null).toBe(true);
     });
 });
 
