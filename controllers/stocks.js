@@ -15,7 +15,6 @@ const getTimeSeriesData = async () => {
 exports.getTimeSeries = (req, res, next) => {
     getTimeSeriesData()
     .then(data => {
-        console.log(data.financialData);
         res.status(200)
         .send(data);
     })

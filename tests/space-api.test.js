@@ -8,7 +8,7 @@ describe("GET /nasa-api/v1/apod", () => {
     });
     it("should return the title of the image of the day", async () => {
         const response = await request(baseURL).get("/nasa-api/v1/apod");
-        expect(response.body.title === 'After Sunset Planet Parade').toBe(true);
+        expect(response.body.title === 'CG4: The Globule and the Galaxy').toBe(true);
     });
 });
 
